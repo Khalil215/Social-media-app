@@ -1,0 +1,121 @@
+:root {
+  --darkTheme: #1D2E36; 
+  --lightTheme: #4AC27B; 
+
+}
+
+.loginPage {
+  display: flex;
+  max-width: 80%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo {
+  flex-basis: 50%;
+}
+
+.loginContext {
+  width: 400px;
+}
+
+.inputs {
+  background-color: var(--darkTheme) ;
+  display: grid;
+  border-radius: 3px;
+
+}
+
+.inputs img {
+  width: 175px;
+  margin: 1em auto;
+}
+.iphone{
+  width: 380px;
+}
+
+form {
+  width: 90%;
+  display: grid;
+  justify-self: center;
+}
+
+
+
+
+
+input,
+form button {
+  width: 100%;
+  color: var(--darkTheme) ;
+  outline: none;
+  border: 2px solid var(--lightTheme);
+  border-radius: 2em;
+  padding: 1em 45px;
+  font-size: 12px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+}
+
+svg {
+  width: 30px;
+  position: relative;
+  top: 35px;
+  left: 10px;
+  color: var(--darkTheme) ;
+}
+
+form button {
+  color: var(--lightTheme) ;
+  background-color: var(--darkTheme) ;
+  margin-top: 2em;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.opacity {
+  opacity: 75%;
+  font-weight: bold;
+}
+
+.signup {
+  margin-top: 10px;
+  background-color: var(--darkTheme) ;
+  padding: 9px;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: white;
+}
+
+.signup a {
+  text-decoration: none;
+  color: var(--lightTheme);
+  font-weight: bold;
+}
+
+form p {
+  margin: 10px;
+  text-align: center;
+  color: red;
+  font-size: 0.7em;
+}
+
+.gettheapp {
+  display: grid;
+  place-items: center;
+  margin: 25px;
+  grid-gap: 25px;
+}
+
+.getapppics img {
+  width: 135px;
+  margin: 5px;
+}
+

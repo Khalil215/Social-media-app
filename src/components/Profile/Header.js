@@ -1,0 +1,80 @@
+import PropTypes from 'prop-types';
+import '../../styles/profile.css'
+import UserDataContext from '../../context/userdata'
+import { useContext, useEffect, useState } from 'react'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { isUserFollowingProfile, toggleFollow,getUserByUid } from '../../hooks/FirestoreServices';
+
+
+export default function Header({ username, fullName, numFollowers, numFollowing, numPosts, userId, docId }) {
+
+  const { userData, setActiveUser } = useContext(UserDataContext)
+
+  const [isFollowingProfile, setIsFollowingProfile] = useState(null)
+  const [followersCount, setFollowersCount] = useState(null)
+
+
+  useEffect(() => {
+    async function isLoggedUserFollowingProfile() {
+      const isFollowing = await isUserFollowingProfile(userData, userId)
+      setIsFollowingProfile(isFollowing)
+    }
+    if (userId) {
+      isLoggedUserFollowingProfile()
+    }
+  }, [userData, userId])
+
+  // console.log(numPosts);
+  async function handleToggleFollow(e) {
+    e.preventDefault()
+
+    setIsFollowingProfile(isFollowingProfile => !isFollowingProfile)
+
+    setFollowersCount(followersCount => isFollowingProfile ? numFollowers + followersCount - 1 : numFollowers + followersCount + 1)
+
+    await toggleFollow(userData, userId, docId, isFollowingProfile)
+
+    const user = await getUserByUid(userData.userId)
+    setActiveUser(user)
+    // console.log(numFollowers);
+
+
+  }
+
+  // console.log(followersCount);
+
+  return !username ? (
+    <SkeletonTheme baseColor="#162329" highlightColor="#193741" ><div className='profileHeader'><Skeleton circle height={140} width={140} count={1} /><div className='skel'>
+      <Skeleton height={30} width={200} count={1} />
+      <Skeleton height={30} width={200} count={1} />
+      <Skeleton height={30} width={200} count={1} />
+    </div></div></SkeletonTheme>) : (
+    <div className='profileHeader'>
+      <div><img src={`/images/avatars/${username}.jpg`} alt="" /></div>
+      <div>
+        <div className=' profileDetails'>
+          <div className='bold top'>{username}</div>
+          {userData.username === username ? <div></div> : isFollowingProfile ? <button onClick={handleToggleFollow}>Unfolow</button> : <button onClick={handleToggleFollow}>Follow</button>}
+        </div>
+        <div className=' profileDetails mid'>
+          <div><span className='bold'>{numPosts}</span>  photos</div>
+          <div><span className='bold'>{followersCount ? followersCount : numFollowers}</span> followers</div>
+          <div><span className='bold'>{numFollowing}</span> following</div>
+        </div>
+        <div className=' profileDetails bold top'>{fullName}</div>
+      </div>
+    </div>
+  )
+}
+
+Header.propTypes = {
+  docId: PropTypes.string,
+  username: PropTypes.string,
+  userId: PropTypes.string,
+  fullName: PropTypes.string,
+  numFollowers: PropTypes.number,
+  numFollowers: PropTypes.number,
+  numPosts: PropTypes.number,
+
+};
