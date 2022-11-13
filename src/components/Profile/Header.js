@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import '../../styles/profile.css'
 import UserDataContext from '../../context/userdata'
 import { useContext, useEffect, useState } from 'react'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { isUserFollowingProfile, toggleFollow,getUserByUid } from '../../hooks/FirestoreServices';
+import { isUserFollowingProfile, toggleFollow, getUserByUid } from '../../hooks/FirestoreServices';
 
 
 export default function Header({ username, fullName, numFollowers, numFollowing, numPosts, userId, docId }) {
@@ -45,11 +45,11 @@ export default function Header({ username, fullName, numFollowers, numFollowing,
   // console.log(followersCount);
 
   return !username ? (
-    <SkeletonTheme baseColor="#162329" highlightColor="#193741" ><div className='profileHeader'><Skeleton circle height={140} width={140} count={1} /><div className='skel'>
-      <Skeleton height={30} width={200} count={1} />
-      <Skeleton height={30} width={200} count={1} />
-      <Skeleton height={30} width={200} count={1} />
-    </div></div></SkeletonTheme>) : (
+    <div className='profileHeader'>
+      <Skeleton circle className='pcSkel' count={1} />
+      <div className='skel'>
+      <Skeleton className='pSkel' height={`100%`} count={3} />
+    </div></div>) : (
     <div className='profileHeader'>
       <div><img src={`/images/avatars/${username}.jpg`} alt="" /></div>
       <div>

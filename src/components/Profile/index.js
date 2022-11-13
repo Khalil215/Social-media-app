@@ -23,20 +23,20 @@ export default function Profile() {
       setPosts(usersPost)
       // console.log(profile);
     }
-    
+
     if (username) {
       getUserDetails()
       getPosts()
     }
-  
+
 
   }, [username])
 
-  return  (
+  return (
     <div className="profilePage">
-      <Header username={profile?.username} fullName={profile?.fullName} numFollowers={profile?.followers.length} numFollowing={profile?.following.length} numPosts={posts? posts?.length : 0} userId={profile?.userId} docId={profile?.docId}/> 
-<hr />
-      <Photos posts={posts}/>
+      <Header username={profile?.username} fullName={profile?.fullName} numFollowers={profile?.followers.length} numFollowing={profile?.following.length} numPosts={posts ? posts?.length : 0} userId={profile?.userId} docId={profile?.docId} />
+      <hr />
+      <Photos posts={posts} />
     </div>
   )
 }

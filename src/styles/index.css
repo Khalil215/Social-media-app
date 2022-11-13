@@ -3,7 +3,7 @@
   margin: 0px;
   box-sizing: border-box;
 }
-/* font-family: 'Bungee', cursive; */
+
 :root {
   --darkTheme: #1D2E36;
   
@@ -38,3 +38,6 @@ body{
   font-size: 14px;
 }
 
+a{
+  text-decoration: none;
+}

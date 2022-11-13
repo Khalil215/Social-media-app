@@ -27,10 +27,6 @@
 
 }
 
-.inputs img {
-  width: 175px;
-  margin: 1em auto;
-}
 .iphone{
   width: 380px;
 }
@@ -40,8 +36,6 @@ form {
   display: grid;
   justify-self: center;
 }
-
-
 
 
 
@@ -55,12 +49,13 @@ form button {
   padding: 1em 45px;
   font-size: 12px;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+  font-family: Nunito;
 }
 
 svg {
   width: 30px;
   position: relative;
-  top: 35px;
+  top: 37px;
   left: 10px;
   color: var(--darkTheme) ;
 }
@@ -119,3 +114,25 @@ form p {
   margin: 5px;
 }
 
+@media (max-width:850px) {
+  .photo {
+    display: none;
+  }
+}
+
+@media (max-width:425px) {
+  input,
+  form button {
+    padding: .6em 35px;
+    font-size: 11px;
+  }
+  svg {
+    width: 22px;
+    top: 28px;
+    left: 8px;
+  }
+  .signup {
+    margin-top: 15px;
+    font-size: 12px;
+  }
+}

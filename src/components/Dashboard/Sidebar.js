@@ -7,7 +7,7 @@ import { useState } from "react"
 import SuggestedProfiles from "./SuggestedProfiles"
 
 
-export default function Sidebar() {
+export default function Sidebar({ viewProfiles }) {
   const { userData } = useContext(UserDataContext)
   const [profiles, setProfiles] = useState(null);
 
@@ -22,15 +22,16 @@ export default function Sidebar() {
       getUsersNotFollowing()
     }
   }, [userData])
- 
 
-  return !profiles ? (
-  <SkeletonTheme  baseColor="#162329" highlightColor="#193741"><Skeleton className="sidebar" height={200} width={350} count={1} /></SkeletonTheme>) : profiles.length > 0 && (<>
-  <div className="sidebar">
-    <p className="sidebarp">Suggestions for you </p>
-  {profiles.map(profiles => <SuggestedProfiles key={profiles.userId} profiles={profiles} userData={userData}/>)}
-  </div>
-  </>)
+  // console.log(viewProfiles);
+  return (<div className={viewProfiles ?'none': ''}>
+    {!profiles ? (<div className="sidebarSkel"><Skeleton className="sp" height={`100%`} count={3} /></div>) : profiles.length > 0 && (<>
+      <div className="sidebar">
+        <p className="sidebarp">Suggestions for you </p>
+        {profiles.map(profiles => <SuggestedProfiles key={profiles.userId} profiles={profiles} userData={userData} />)}
+      </div>
+    </>)}
+  </div>)
 }
 
 

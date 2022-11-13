@@ -5,11 +5,12 @@ import { getFollowedProfiles } from "../../hooks/FirestoreServices";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
 import UserDataContext from "../../context/userdata";
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Chat() {
   const [followed, setFollowed] = useState(null)
+  const [showChat, setShowChat] = useState(false)
   const { userData } = useContext(UserDataContext)
 
   useEffect(() => {
@@ -23,31 +24,35 @@ export default function Chat() {
     }
   }, [userData])
 
+  const handleClick =()=>{setShowChat(!showChat)}
   return (
     <div className='chat'>
-      {!followed ? (
-        <SkeletonTheme baseColor="#162329" highlightColor="#193741" ><div className='chatskel'><Skeleton height={100} width={350} count={1} /><Skeleton height={100} width={350} count={1} /><Skeleton height={100} width={350} count={1} /><Skeleton height={100} width={350} count={1} /></div></SkeletonTheme>) : followed.length > 0 ? <div>
-          <div className="convo">Conversations</div>
+      <div className={showChat? 'none':''}>
+        {!followed ? (
+          <div className='chatskel'><Skeleton className='chtskl' height={`100%`} count={4} /></div>) : followed.length > 0 ? <div>
+            <div className="convo">Conversations</div>
 
-          {followed.map((followed) => {
+            {followed.map((followed) => {
 
-            return <Link to={`/dashboard/chat/${followed.userId}`} className="mychats" key={followed.docId}>
+              return <Link to={`/dashboard/chat/${followed.userId}`} className="mychats" key={followed.docId} onClick={handleClick}>
 
-              <img src={followed.imageSrc} alt="" />
-              <div className="headerName">
-                <div className='fullName'>{followed.fullName}</div>
-                <div className='postUsername'>{followed.username}</div>
-              </div>
+                <img src={followed.imageSrc} alt="" />
+                <div className="headerName">
+                  <div className='fullName'>{followed.fullName}</div>
+                  <div className='postUsername'>{followed.username}</div>
+                </div>
 
-            </Link>
+              </Link>
 
-          })}
+            })}
 
-        </div> : (<p className="timelinep">Follow Users To Chat With Them</p>)}
+          </div> : (<p className="timelinep">Follow Users To Chat With Them</p>)}
+      </div>
 
-     
+
+
       <Routes>
-        <Route path=":userId" element={<Chats />} />
+        <Route path=":userId" element={<Chats handleClick={handleClick} showChat={showChat}/>} />
       </Routes>
 
     </div>

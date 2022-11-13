@@ -15,8 +15,16 @@
 }
 
 .skel {
-  display: grid;
-  gap: 10px;
+  width: 200px;
+}
+
+.pSkel {
+  margin-bottom: 10px;
+}
+
+.pcSkel {
+  width: 140px;
+  height: 140px;
 }
 
 .profileHeader {
@@ -24,6 +32,7 @@
   display: flex;
   align-items: center;
   gap: 100px;
+  height: auto;
 }
 
 .profileHeader img {
@@ -39,7 +48,7 @@
 }
 
 .profileDetails button {
-  padding: 5px;
+  padding: 4px;
   width: 80px;
   font-style: 'Nunito', sans-serif;
   color: var(--lightTheme);
@@ -75,6 +84,17 @@ hr {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.profileSkel {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 400px;
+  gap: 10px;
+}
+
+.profilePhotosSkel {
+  width: 300px;
+}
 
 .profilePhotos img {
   width: 300px;
@@ -85,7 +105,7 @@ hr {
   position: absolute;
   margin-bottom: auto;
   width: 300px;
-  height: 425px;
+  height: 375px;
   background-color: #00000056;
   margin-bottom: 20px;
   backdrop-filter: blur(1px);
@@ -93,22 +113,19 @@ hr {
   gap: 50px;
   padding: 0px 80px;
   display: none;
- 
 }
 
-.hoveron:hover .hover{
+.hoveron:hover .hover {
   display: flex;
 }
 
 
 .hover svg {
   width: 40px;
-  color:var(--midTheme);
-  /* padding-bottom: 40px; */
-
+  color: var(--lightTheme);
 }
 
-.hovericons{
+.hovericons {
   display: flex;
   align-items: center;
   font-size: 20px;
@@ -121,4 +138,148 @@ hr {
   font-weight: bold;
   text-align: center;
   margin-top: 50px;
+}
+
+@media (max-width:768px) {
+  .profilePage {
+    width: 95%;
+    margin: 0px auto;
+    grid-template-rows: 100px auto;
+  }
+
+  .pcSkel {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profileHeader {
+    gap: 50px;
+  }
+
+  .profilePhotosSkel {
+    width: 210px;
+  }
+
+  .profileSkel {
+    height: 300px;
+  }
+
+  .skel {
+    width: 170px;
+  }
+
+  .profilePhotos img {
+    width: 220px;
+  }
+
+  .profileHeader img {
+    width: 80px
+  }
+
+  .profileDetails {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .top {
+    font-size: 14px;
+  }
+
+  .mid {
+    font-size: 12px;
+  }
+
+  .profileDetails button {
+    padding: 2px;
+    font-size: 13px;
+  }
+
+  .hover {
+    width: 220px;
+    height: 274px;
+    gap: 20px;
+    padding: 0px 60px;
+  }
+
+  .hover svg {
+    width: 25px;
+  }
+
+  .hovericons {
+    font-size: 15px;
+  }
+}
+
+@media (max-width:450px) {
+  .noposts {
+    font-size: 14px;
+  }
+
+  .profileHeader {
+    padding-left: 10px;
+    gap: 30px;
+  }
+
+  .skel {
+    width: 100px;
+  }
+
+  .profilePhotosSkel {
+    width: 95%;
+  }
+
+  .profileSkel {
+    height: 130px;
+    gap: 0px;
+  }
+
+  .pcSkel {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pSkel {
+    margin-bottom: 0px;
+  }
+
+  .profileHeader img {
+    width: 60px
+  }
+
+  .profilePhotos img {
+    width: 100%;
+  }
+
+  .hover {
+    width: 90px;
+    height: 114px;
+    gap: 10px;
+    padding: 0px 20px;
+    background-color: unset;
+    backdrop-filter: blur(0px);
+  }
+  .hover svg {
+    width: 15px;
+  }
+
+  .hovericons {
+    font-size: 11px;
+  }
+  .profileDetails {
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+
+  .top {
+    font-size: 10px;
+  }
+
+  .mid {
+    font-size: 9px;
+  }
+
+  .profileDetails button {
+    padding: 2px;
+    font-size: 9px;
+  }
 }

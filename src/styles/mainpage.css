@@ -4,27 +4,28 @@
   --lightTheme: #4AC27B;
   --fontcol: #868999;
   --font: 'Bungee', cursive;
-  --bradius: 30px;
 }
 
 
 .dash {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-gap: 20px;
-  
 }
 
+.tlSkel {
+  height: 600px;
+  width: 100%;
+}
 
 .timeline {
   background-color: var(--midTheme);
-  width: 60%;
+  width: 70%;
   height: auto;
   margin: 0px auto;
-
 }
 
-.timelinep{
+
+.timelinep {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -35,9 +36,9 @@
   width: 90%;
   height: auto;
   margin-bottom: 20px;
-  border-radius: var(--bradius);
+  display: grid;
+  grid-template-rows: 7em auto 6em 3em auto;
   box-shadow: 0px 0px 4px black;
-  /* overflow: hidden; */
 }
 
 .postHeader {
@@ -46,13 +47,11 @@
   display: grid;
   text-decoration: none;
   grid-template-columns: 5em auto;
-  border-radius: var(--bradius);
   margin-bottom: 10px;
 }
 
 .postHeader img {
   width: 4em;
-  /* height: 20px; */
   border-radius: 50%;
 }
 
@@ -70,10 +69,7 @@
 }
 
 .postImage {
-  width: 80%;
-  /* height: 700px; */
-  margin-left: 10%;
-  border-radius: 10px;
+  width: 100%;
 }
 
 
@@ -83,10 +79,10 @@
 }
 
 .numLikes {
-  /* display: flex; */
+  display: flex;
   position: relative;
-  bottom: 500px;
-  left: 50px;
+  bottom: 80px;
+  left: 20px;
   font-size: 24px;
   font-weight: bold;
   color: white;
@@ -140,7 +136,7 @@
 
 .inputComment input {
   padding: 10px;
-  width: 90%;
+  width: 80%;
   background-color: var(--darkTheme);
   border: 2px solid var(--lightTheme);
   color: white;
@@ -161,16 +157,22 @@
 }
 
 
-.sidebar {
+.sidebarSkel {
   margin-top: 30px;
-  
+  height: 85px;
+  width: 85%;
 }
-.sidebarp{
+
+
+.sp {
+  margin-top: 15px;
+}
+
+.sidebarp {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
-  width: 80%;
 }
 
 .suggestedprofiles {
@@ -192,10 +194,9 @@
   font-weight: bold;
   color: var(--fontcol);
   border-radius: 5px;
-  
 }
 
-.suggestedprofiles a{
+.suggestedprofiles a {
   text-decoration: none;
 }
 
@@ -204,8 +205,218 @@
   border-radius: 50%;
 }
 
-.suggestedprofiles button{
+.suggestedprofiles button {
   font-family: 'Nunito', sans-serif;
   color: var(--lightTheme);
+}
+
+.change {
+  width: fit-content;
+  height: fit-content;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  background-color: unset;
+  color: var(--lightTheme);
+  font-family: Nunito;
+  font-size: 10px;
+  box-shadow: 0px 0px 3px black;
+  display: none;
+}
+
+
+
+@media (max-width:768px) {
+  .timeline {
+    width: 85%;
+  }
+
+  .sidebarSkel {
+    height: 65px;
+  }
+
+  .suggestedprofiles {
+    margin-bottom: 15px;
+    padding: 8px 10px;
+    width: 90%;
+
+  }
+
+  .suggesteduser img {
+    width: 40px;
+  }
+
+  .suggesteduser {
+    gap: 12px;
+    font-size: 12px;
+  }
+
+  .sidebarp {
+    font-size: 14px;
+  }
+
+  .follow {
+    font-size: 12px;
+  }
+
+  .postHeader {
+    padding-top: 10px;
+  }
+
+  .postHeader img {
+    width: 40px;
+  }
+
+  .fullName {
+    padding-bottom: 2px;
+    font-size: 14px;
+  }
+
+  .postUsername {
+    font-size: 11px;
+  }
+
+  .post {
+    width: 100%;
+    grid-template-rows: 5em auto 4.5em 2em auto;
+  }
+
+  .icons svg {
+    width: 28px;
+  }
+
+  .caption {
+    font-size: 14px;
+  }
+
+  .comments p {
+    font-size: 12px;
+  }
+
+  .comments button {
+    font-size: 12px;
+  }
+
+  .inputComment {
+    padding: 8px 20px 20px 20px;
+  }
+
+  .inputComment input {
+    padding: 5px;
+  }
+}
+
+@media (max-width:450px) {
+  .timeline {
+    width: 95%;
+  }
+
+  .none {
+    display: none;
+  }
+
+  .change {
+    display: unset;
+  }
+
+  .dash {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarSkel {
+    height: 45px;
+    width: 90%;
+    margin: 0px auto;
+  }
+
+  .sidebar {
+    width: 90%;
+    margin: 0px auto;
+  }
+  .suggestedprofiles {
+    padding: 5px 10px;
+    width: 100%;
+  }
+  .suggesteduser {
+    gap: 10px;
+    font-size: 11px;
+  }
   
+  .suggestedprofiles a {
+    text-decoration: none;
+  }
+  
+  .suggesteduser img {
+    width: 30px;
+    border-radius: 50%;
+  }
+  .tlSkel {
+    height: 400px;
+  }
+
+  .postHeader img {
+    width: 30px;
+  }
+
+  .fullName {
+    padding-bottom: 2px;
+    font-size: 10px;
+  }
+
+  .postUsername {
+    font-size: 9px;
+  }
+
+  .postHeader {
+    grid-template-columns: 3em auto;
+  }
+
+  .post {
+    grid-template-rows: 4em auto 3.4em 1em auto;
+  }
+
+  .comments button {
+    width: 150px;
+    margin-top: 1px;
+  }
+
+  .icons svg {
+    width: 20px;
+  }
+
+  .numLikes {
+    bottom: 60px;
+    font-size: 16px;
+  }
+
+  .actionz {
+    bottom: 35px;
+    padding-left: 5px;
+  }
+
+  .caption {
+    font-size: 10px;
+    padding-left: 10px;
+  }
+
+  .comments p {
+    font-size: 8px;
+    padding-left: 5px;
+  }
+
+  .comments button {
+    font-size: 8px;
+  }
+
+  .inputComment {
+    padding: 3px
+  }
+
+  .inputComment input {
+    padding: 5px;
+    font-size: 9px;
+  }
+
+  .inputComment button {
+    font-size: 10px;
+  }
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import UserDataContext from "../../context/userdata";
 import { getUserByUid } from "../../hooks/FirestoreServices";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
@@ -9,7 +9,7 @@ import { addDoc, messageRef, serverTimestamp, query, where, orderBy, onSnapshot 
 
 
 
-export default function Chats() {
+export default function Chats({ handleClick, showChat }) {
   const [chatUser, setChatUser] = useState(null)
   const [message, setMessage] = useState('')
   const [chat, setChat] = useState(null)
@@ -60,39 +60,44 @@ export default function Chats() {
 
 
 
-  return !chatUser ? (
-    <SkeletonTheme baseColor="#162329" highlightColor="#193741" ><Skeleton height={550} width={580} count={1} /></SkeletonTheme>) : (
-    <div className="insidechat">
-      <div className="inchatheader ">
-        <img src={chatUser.imageSrc} alt="" />
-        <div className="headerName">
-          <div className='fullName'>{chatUser.fullName}</div>
-          <div className='postUsername'>{chatUser.username}</div>
-        </div></div>
-      <div className="inchatbody">
+  return <div className={showChat?'':'none'}>
+    {!chatUser ? (<div className="theChatSkel"><Skeleton height={`100%`} count={1} /></div>
+    ) : (<>
+      <button onClick={handleClick} className='change'>Back to Chats</button>
+      <div className="insidechat">
+        <Link to={`/dashboard/p/${chatUser.username}`} className="inchatheader ">
+          <img src={chatUser.imageSrc} alt="" />
+          <div className="headerName">
+            <div className='fullName'>{chatUser.fullName}</div>
+            <div className='postUsername'>{chatUser.username}</div>
+          </div></Link>
+        <div className="inchatbody">
 
-        {chat.length > 0 ? (chat.map(chat => {
-          return chat.userId == userData.userId + ',' + userId ? (<div className="sent" key={chat.docId}>
-            <p>{chat.text}</p>
-            <img src={chat.image} alt="" />
-          </div>) : (<div className="received" key={chat.docId}>
-            <img src={chat.image} alt="" />
-            <p>{chat.text}</p>
-          </div>)
-        })) : (<p className="nomssg">No messages here yet...</p>)}
-        <div ref={scroll}></div>
+          {chat.length > 0 ? (chat.map(chat => {
+            return chat.userId == userData.userId + ',' + userId ? (<div className="sent" key={chat.docId}>
+              <p>{chat.text}</p>
+              <img src={chat.image} alt="" />
+            </div>) : (<div className="received" key={chat.docId}>
+              <img src={chat.image} alt="" />
+              <p>{chat.text}</p>
+            </div>)
+          })) : (<p className="nomssg">No messages here yet...</p>)}
+          <div ref={scroll}></div>
+        </div>
+        <div className="inchatinput">
+          <form onSubmit={(event) =>
+            message.length >= 1 ? handleSumit(event) : event.preventDefault()
+          }>
+            <input type="text" placeholder="Type a message here" value={message} onChange={(e) => setMessage(e.target.value)} />
+            <svg onClick={invalid ? null : handleSumit} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+            </svg>
+          </form>
+        </div>
       </div>
-      <div className="inchatinput">
-        <form onSubmit={(event) =>
-          message.length >= 1 ? handleSumit(event) : event.preventDefault()
-        }>
-          <input type="text" placeholder="Type a message here" value={message} onChange={(e) => setMessage(e.target.value)} />
-          <svg onClick={invalid ? null : handleSumit} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-          </svg>
-        </form>
-      </div>
-    </div>
+    </>
 
-  )
+
+    )}
+  </div>
 }

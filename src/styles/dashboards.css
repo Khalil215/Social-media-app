@@ -11,8 +11,6 @@
   height: 100vh;
   display: grid;
   grid-template-rows: 75px auto;
- 
-  /* position: relative; */
 }
 
 .body {
@@ -20,11 +18,13 @@
   grid-template-columns: 80px auto;
   overflow: scroll;
   -ms-overflow-style: none;
-  scrollbar-width: none; 
+  scrollbar-width: none;
 }
+
 .body::-webkit-scrollbar {
   display: none;
 }
+
 .pageBody::-webkit-scrollbar {
   display: none;
 }
@@ -33,13 +33,14 @@
   background-color: var(--midTheme);
   overflow: scroll;
   -ms-overflow-style: none;
-  scrollbar-width: none; 
+  scrollbar-width: none;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 
 .profile {
@@ -56,6 +57,13 @@
   cursor: default;
 }
 
+.headSkel {
+  width: 150px;
+  height: 60px;
+  color: red;
+}
+
+
 .nav {
   padding-top: 100px;
   display: grid;
@@ -71,20 +79,20 @@ button {
   border-radius: 6px;
   width: 45px;
   color: #aeb2c7;
-  
+
 }
 
 button:hover {
   cursor: pointer;
 }
 
-a{
+a {
   border-radius: 6px;
   padding: 7px;
   background-color: var(--darkTheme);
 }
 
-.navsvg{
+.navsvg {
   width: 30px;
   color: #aeb2c7;
   position: relative;
@@ -92,18 +100,21 @@ a{
   left: 0px;
   transition: all 0.2s ease;
 }
-.w-6:hover{
+
+.w-6:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
-.active{
+
+.active {
   background-color: var(--lightTheme);
   transition: all 1s ease;
   box-shadow: 0px 0px 4px black;
 }
-.active svg{
+
+.active svg {
   color: white;
-  
+
 }
 
 .profile a {
@@ -115,12 +126,12 @@ a{
 
 .username {
   font-size: 15px;
-  
   color: #aeb2c7;
   font-style: italic;
   text-decoration: none;
 }
-.fullname{
+
+.fullname {
   font-size: 16px;
   font-weight: bold;
   color: white;
@@ -132,6 +143,90 @@ a{
   border-radius: 50px;
 }
 
-.pageBody{
-  padding: 30px 0px 0px 0px;
+.pageBody {
+  padding: 20px 0px 0px 0px;
+}
+
+@media (max-width:768px) {
+  .dashboard {
+    grid-template-rows: 50px auto;
+  }
+
+  .gram {
+    font-size: 1.4em;
+    padding-left: 50px;
+  }
+
+  .profile {
+    padding-right: 50px;
+  }
+
+  .headSkel {
+    height: 35px;
+  }
+
+  .profile img {
+    width: 40px;
+  }
+
+  .username {
+    font-size: 12px;
+  }
+
+  .fullname {
+    font-size: 13px;
+  }
+
+  .body {
+    grid-template-columns: 65px auto;
+  }
+
+}
+
+@media (max-width:450px) {
+
+  .gram {
+    font-size: 1em;
+    padding-left: 20px;
+  }
+
+  .profile {
+    padding-right: 5px;
+  }
+
+  .headSkel {
+    width: 90px;
+  }
+
+  .profile img {
+    width: 30px;
+  }
+
+  .username {
+    font-size: 8px;
+  }
+
+  .fullname {
+    font-size: 9px;
+  }
+  .profile a {
+    gap: 5px;
+  }
+
+  .nav {
+    padding-top: 50px;
+    grid-template-rows: repeat(4, 42px);
+  }
+
+  .body {
+    grid-template-columns: 40px auto;
+  }
+
+  a {
+    padding: 4px;
+  }
+  
+  .navsvg {
+    width:23px;
+  }
 }
