@@ -51,7 +51,7 @@ export default function Header({ username, fullName, numFollowers, numFollowing,
       <Skeleton className='pSkel' height={`100%`} count={3} />
     </div></div>) : (
     <div className='profileHeader'>
-      <div><img src={`/images/avatars/${username}.jpg`} alt="" /></div>
+      <div><img src={`/images/avatars/${username}.JPG`} alt="" /></div>
       <div>
         <div className=' profileDetails'>
           <div className='bold top'>{username}</div>

@@ -6,10 +6,10 @@
 
 :root {
   --darkTheme: #1D2E36;
-  
+
 }
 
-body{
+body {
   background-color: var(--darkTheme);
   font-size: 12px;
   font-family: 'Nunito', sans-serif;
@@ -31,13 +31,32 @@ body{
   color: aliceblue
 }
 
-.notFound a{
+.notFound a {
   text-decoration: none;
   color: #4AC27B;
   font-weight: bold;
   font-size: 14px;
+  text-decoration: underline;
 }
 
-a{
+a {
   text-decoration: none;
+}
+
+.notFound h1 {
+  color: #4AC27B;
+}
+
+
+@media (max-width:768px) {
+  .notFound {
+    width: 90%;
+  }
+}
+
+@media (max-width:450px) {
+  .notFound a {
+    font-size: 12px;
+    
+  }
 }

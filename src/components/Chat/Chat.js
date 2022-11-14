@@ -50,7 +50,7 @@ export default function Chats({ handleClick, showChat }) {
     await addDoc(messageRef, {
       timeCreated: serverTimestamp(),
       text: message,
-      image: `/images/avatars/${userData.username}.jpg`,
+      image: `/images/avatars/${userData.username}.JPG`,
       userId: userData.userId + ',' + userId
     })
     setMessage('')

@@ -30,7 +30,7 @@ const Signup = () => {
           fullName: fullname,
           userId: cred.user.uid,
           username: username.toLowerCase(),
-          imageSrc: '/images/avatars/default.png'
+          imageSrc: '/images/avatars/default.PNG'
         })
         // console.log({ cred })
         // console.log(newDoc)
@@ -61,7 +61,7 @@ const Signup = () => {
     <div className="App">
       <div className="loginPage">
         <div className="photo">
-          <img className='iphone' src="/images/rocket.jpg" alt="logo" />
+          <img className='iphone' src="/images/rocket.JPG" alt="logo" />
         </div>
         <div className="loginContext">
           <div className="inputs">

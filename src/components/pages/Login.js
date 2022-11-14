@@ -42,7 +42,7 @@ const Login = () => {
     <div className="App">
       <div className="loginPage">
         <div className="photo">
-          <img className='iphone' src="/images/rocket.jpg" alt="logo" />
+          <img className='iphone' src="/images/rocket.JPG" alt="logo" />
         </div>
         <div className="loginContext">
           <div className="inputs">
