@@ -50,14 +50,14 @@ export default function Chats({ handleClick, showChat }) {
     await addDoc(messageRef, {
       timeCreated: serverTimestamp(),
       text: message,
-      image: `/images/avatars/${userData.username}.JPG`,
+      image: `${userData.imageSrc}`,
       userId: userData.userId + ',' + userId
     })
     setMessage('')
     scroll.current.scrollIntoView({ behaviour: 'smooth' })
 
   }
-
+console.log(userData)
 
 
   return <div className={showChat?'':'none'}>

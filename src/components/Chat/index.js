@@ -17,7 +17,6 @@ export default function Chat() {
     async function getChats() {
       const followedProfiles = await getFollowedProfiles(userData)
       setFollowed(followedProfiles)
-      // console.log( followedProfiles);
     }
     if (userData) {
       getChats()

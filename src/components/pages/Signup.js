@@ -30,7 +30,7 @@ const Signup = () => {
           fullName: fullname,
           userId: cred.user.uid,
           username: username.toLowerCase(),
-          imageSrc: '/images/avatars/default.PNG'
+          imageSrc: '/images/avatars/default.png'
         })
         // console.log({ cred })
         // console.log(newDoc)
