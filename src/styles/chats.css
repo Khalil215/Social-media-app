@@ -242,7 +242,7 @@ justify-content: space-between;
   }
 
   .inchatinput svg {
-    width: 30px;
+    width: 35px;
 padding: 5px;
   }
 
@@ -297,7 +297,7 @@ padding: 5px;
     padding-left: 0px;
     height: 100%;
     margin-top: 10px;
-    grid-template-rows: 7vh 53vh 7vh;
+    grid-template-rows: 7vh 50vh 7vh;
     border-left: none;
   }
   .inchatheader {
@@ -329,7 +329,9 @@ padding: 5px;
   }
 
   .inchatinput svg {
-    width: 30px;
+    width: 35px;
+position:relative;
+bottom: 20px
   }
 
   .inchatinput input {
