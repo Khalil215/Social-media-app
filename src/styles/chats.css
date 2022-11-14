@@ -168,7 +168,7 @@
 }
 
 .inchatinput input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   font-size: 16px;
   background-color: var(--darkTheme);
@@ -294,7 +294,7 @@
     padding-left: 0px;
     height: 100%;
     margin-top: 10px;
-    grid-template-rows: 8vh 60vh 8vh;
+    grid-template-rows: 8vh 55vh 8vh;
     border-left: none;
   }
   .inchatheader {
