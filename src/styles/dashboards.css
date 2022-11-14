@@ -10,13 +10,14 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 75px auto;
+  grid-template-rows: 12vh auto;
 }
 
 .body {
   display: grid;
   grid-template-columns: 80px auto;
-  overflow: scroll;
+  overflow-y: scroll;
+overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -31,7 +32,8 @@
 
 .pageBody {
   background-color: var(--midTheme);
-  overflow: scroll;
+  overflow-y: scroll;
+overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -148,9 +150,6 @@ a {
 }
 
 @media (max-width:768px) {
-  .dashboard {
-    grid-template-rows: 50px auto;
-  }
 
   .gram {
     font-size: 1.4em;
