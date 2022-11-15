@@ -1,9 +1,8 @@
 import '../../styles/loginsignup.css'
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { auth, signInWithEmailAndPassword } from '../../libraries/firebase'
 
-import UserContext from '../../context/user';
 const Login = () => {
 
   const [email, setEmail] = useState('')
