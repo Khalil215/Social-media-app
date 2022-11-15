@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-// import PropTypes from 'prop-types';
 import Header from './Header';
 import Image from './Image';
 import Actions from './Actions';
@@ -25,7 +24,6 @@ export default function Post({ photos }) {
       <Comments
         docId={photos.docId}
         comments={photos.comments}
-        // posted={photos.dateCreated}
         commentInput={commentInput}
       />
     </div>
