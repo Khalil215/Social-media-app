@@ -1,5 +1,5 @@
 
-import { getDocs, userColRef, query, where, photoColRef, db, doc, updateDoc, arrayUnion, arrayRemove, messageRef, orderBy, limit } from '../libraries/firebase'
+import { getDocs, userColRef, query, where, photoColRef, db, doc, updateDoc, arrayUnion, arrayRemove} from '../libraries/firebase'
 
 
 export async function doesUserExist(username) {
