@@ -34,7 +34,7 @@ export default function Profile() {
 
   return (
     <div className="profilePage">
-      <Header username={profile?.username} fullName={profile?.fullName} numFollowers={profile?.followers.length} numFollowing={profile?.following.length} numPosts={posts ? posts?.length : 0} userId={profile?.userId} docId={profile?.docId} />
+      <Header username={profile?.username} fullName={profile?.fullName} numFollowers={profile?.followers.length} numFollowing={profile?.following.length} numPosts={posts ? posts?.length : 0} userId={profile?.userId} docId={profile?.docId} imageSrc={profile?.imageSrc} />
       <hr />
       <Photos posts={posts} />
     </div>

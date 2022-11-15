@@ -7,7 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { isUserFollowingProfile, toggleFollow, getUserByUid } from '../../hooks/FirestoreServices';
 
 
-export default function Header({ username, fullName, numFollowers, numFollowing, numPosts, userId, docId }) {
+export default function Header({ username, fullName, numFollowers, numFollowing, numPosts, userId, docId, imageSrc }) {
 
   const { userData, setActiveUser } = useContext(UserDataContext)
 
@@ -51,7 +51,7 @@ export default function Header({ username, fullName, numFollowers, numFollowing,
       <Skeleton className='pSkel' height={`100%`} count={3} />
     </div></div>) : (
     <div className='profileHeader'>
-      <div><img src={`/images/avatars/${username}.jpg`} alt="" /></div>
+      <div><img src={imageSrc} alt="" /></div>
       <div>
         <div className=' profileDetails'>
           <div className='bold top'>{username}</div>
