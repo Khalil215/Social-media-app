@@ -91,7 +91,7 @@
 .actionz {
   display: flex;
   position: relative;
-  bottom: 50px;
+  bottom: 40px;
   gap: 10px;
   padding-left: 25px;
 }
