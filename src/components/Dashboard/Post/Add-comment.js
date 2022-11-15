@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-// import UserContext from '../../../context/user'
-import { db,doc,updateDoc, arrayUnion, arrayRemove } from '../../../libraries/firebase'
+import { db,doc,updateDoc, arrayUnion} from '../../../libraries/firebase'
 import UserDataContext from '../../../context/userdata';
 
 
@@ -13,15 +12,16 @@ export default function AddComment({ docId, comments, setComments, commentInput 
    userData: { username }
   } = useContext(UserDataContext);
 
-  // console.log(username);
   const handleSubmitComment = (event) => {
     event.preventDefault();
 
+    //display comment on web
     setComments([...comments, { username, comment }]);
     setComment('');
 
     let docRef = doc(db, 'photos', docId)
-
+    
+    //update on database 
     return updateDoc(docRef, {
       comments: arrayUnion({ username, comment })
     })
