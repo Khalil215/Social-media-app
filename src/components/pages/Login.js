@@ -1,7 +1,6 @@
 import '../../styles/loginsignup.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
-// import { logIn } from '../../hooks/useFirebaseAuth'
 import { auth, signInWithEmailAndPassword } from '../../libraries/firebase'
 
 import UserContext from '../../context/user';
@@ -10,7 +9,6 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const { User } = useContext(UserContext)
   const navigate = useNavigate()
   const isInvalid = email === '' || password === ''
 
@@ -31,11 +29,8 @@ const Login = () => {
   }
 
   useEffect(() => {
+  // set webpage title
     document.title = 'Log In'
-
-    // if (User) {
-    //   navigate('/dashboard')
-    // }
   }, [])
 
   return (
