@@ -13,6 +13,7 @@ export default function Dashboard() {
 
   const { User } = useContext(UserContext)
 
+  // retrieve user's details and setState(to update user details in real-time when changed)
   const { userData, setActiveUser } = useUser(User.uid)
 
 
