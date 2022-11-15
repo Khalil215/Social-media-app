@@ -2,7 +2,6 @@ import { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import UserDataContext from '../../../context/userdata'
 import { db, doc, updateDoc,arrayUnion, arrayRemove } from '../../../libraries/firebase'
-// db,doc,updateDoc
 
 export default function Actions({ docId, userLikedPhoto, totalLikes, handleFocus }) {
   const {
@@ -10,6 +9,8 @@ export default function Actions({ docId, userLikedPhoto, totalLikes, handleFocus
   } = useContext(UserDataContext);
   const [toggleLiked, setToggleLiked] = useState(userLikedPhoto);
   const [likes, setLikes] = useState(totalLikes);
+
+  //add or remove like function
   const handleToggleLiked = async () => { 
     setToggleLiked((toggleLiked) => !toggleLiked);
 
@@ -20,8 +21,6 @@ export default function Actions({ docId, userLikedPhoto, totalLikes, handleFocus
     })
 
     setLikes((likes) => (toggleLiked ? likes - 1 : likes + 1));
-
-    // console.log(likes, toggleLiked, docId);
   };
 
   return (
