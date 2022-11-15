@@ -5,7 +5,7 @@ import { updateFollowedUserFollowers, updateLoggedInUserFollowing, getUserByUid 
 
 export default function SuggestedProfiles({ profiles, userData }) {
 
-  const { setActiveUser } = useContext(UserDataContext)
+  const { setActiveUser } = useContext(UserDataContext) //update post real-time 
   const [followed, setFollowed] = useState(false)
 
 
@@ -18,7 +18,6 @@ export default function SuggestedProfiles({ profiles, userData }) {
 
     const user = await getUserByUid(userData.userId)
     setActiveUser(user)
-    // console.log(user);
   }
 
 
