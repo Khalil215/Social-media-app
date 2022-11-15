@@ -14,13 +14,18 @@ const NotFound = lazy(() => import('./components/pages/NotFound'))
 
 
 export default function App() {
-  const [User, setUser] = useState('')
+  const [User, setUser] = useState(JSON.parse(localStorage.getItem('authUser')))
 
 
   useEffect(() => {
     onAuthStateChanged(auth, user => {
+      // store the user in localstorage
       if (user) {
+        localStorage.setItem('authUser', JSON.stringify(user));
         setUser(user)
+      }else {
+        localStorage.removeItem('authUser');
+        setUser(null);
       }
     })
 
