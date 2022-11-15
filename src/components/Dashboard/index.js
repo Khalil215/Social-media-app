@@ -4,7 +4,7 @@ import '../../styles/mainpage.css'
 import { useState } from 'react'
 
 export default function Dashboard() {
-
+  //for mobile responsive view 
   const [viewProfiles,  setViewProfiles] = useState(true)
   const change = viewProfiles ? 'Suggested Profiles' : 'View Posts'
 
