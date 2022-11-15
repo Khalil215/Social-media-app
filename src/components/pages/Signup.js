@@ -1,9 +1,8 @@
 import '../../styles/loginsignup.css'
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { auth, createUserWithEmailAndPassword, addDoc, userColRef, serverTimestamp } from '../../libraries/firebase'
 import { doesUserExist } from '../../hooks/FirestoreServices'
-// import FirebaseContext from '../../context/firebase';
 
 const Signup = () => {
 
@@ -18,6 +17,8 @@ const Signup = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault()
+
+    //If username is already used throw error
     const userExist = await doesUserExist(username)
     if (!userExist) {
       try {
@@ -32,10 +33,7 @@ const Signup = () => {
           username: username.toLowerCase(),
           imageSrc: '/images/avatars/default.png'
         })
-        // console.log({ cred })
-        // console.log(newDoc)
-        // console.log(cred.user.uid)
-
+        
         navigate('/dashboard')
 
       } catch (error) {
