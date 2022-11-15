@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { formatDistance } from 'date-fns';
 import { Link } from 'react-router-dom';
 import AddComment from './Add-comment';
 
 export default function Comments({ docId, comments: allComments, commentInput }) {
   const [comments, setComments] = useState(allComments);
+
+  //slice comments if more than 3
   const [commentsSlice, setCommentsSlice] = useState(3);
 
+  //show 3 more comments
   const showNextComments = () => {
     setCommentsSlice(commentsSlice + 3);
   };
-
-  // console.log(comments);
 
   return (
     <>
