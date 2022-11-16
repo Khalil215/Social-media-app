@@ -10,7 +10,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Chat() {
   const [followed, setFollowed] = useState(null)
-  const [showChat, setShowChat] = useState(false)
+  const [showChat, setShowChat] = useState(false) //For mobile responsiveness 
   const { userData } = useContext(UserDataContext)
 
   useEffect(() => {
@@ -23,7 +23,8 @@ export default function Chat() {
     }
   }, [userData])
 
-  const handleClick =()=>{setShowChat(!showChat)}
+  const handleClick =()=>{setShowChat(!showChat)} //for mobile responsiveness 
+
   return (
     <div className='chat'>
       <div className={showChat? 'none':''}>
