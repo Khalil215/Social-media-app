@@ -25,7 +25,6 @@ export default function Header({ username, fullName, numFollowers, numFollowing,
     }
   }, [userData, userId])
 
-  // console.log(numPosts);
   async function handleToggleFollow(e) {
     e.preventDefault()
 
@@ -37,12 +36,10 @@ export default function Header({ username, fullName, numFollowers, numFollowing,
 
     const user = await getUserByUid(userData.userId)
     setActiveUser(user)
-    // console.log(numFollowers);
 
 
   }
 
-  // console.log(followersCount);
 
   return !username ? (
     <div className='profileHeader'>
