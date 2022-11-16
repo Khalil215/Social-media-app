@@ -21,7 +21,6 @@ export default function Profile() {
     async function getPosts() {
       const usersPost = await getUsersPhotos(username)
       setPosts(usersPost)
-      // console.log(profile);
     }
 
     if (username) {
