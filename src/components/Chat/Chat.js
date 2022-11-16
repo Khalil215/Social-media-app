@@ -2,7 +2,7 @@ import { useEffect, useState, useContext, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import UserDataContext from "../../context/userdata";
 import { getUserByUid } from "../../hooks/FirestoreServices";
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { addDoc, messageRef, serverTimestamp, query, where, orderBy, onSnapshot } from "../../libraries/firebase";
 
@@ -57,7 +57,6 @@ export default function Chats({ handleClick, showChat }) {
     scroll.current.scrollIntoView({ behaviour: 'smooth' })
 
   }
-console.log(userData)
 
 
   return <div className={showChat?'':'none'}>
