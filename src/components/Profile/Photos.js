@@ -6,7 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Photos({ posts }) {
 
-  // console.log(posts);
+
   return !posts ? (
     <div className='profileSkel'>
       <Skeleton className='profilePhotosSkel' height={`100%`} count={1} /><Skeleton className='profilePhotosSkel' height={`100%`} count={1} /><Skeleton className='profilePhotosSkel' height={`100%`} count={1} /></div>) : posts?.length > 0 ? (
@@ -38,7 +38,7 @@ export default function Photos({ posts }) {
         </div>
       ) : (<p className='noposts'>This User Has No Posts Yet</p>)
 }
-// 
+
 Photos.propTypes = {
   posts: PropTypes.array
 };
