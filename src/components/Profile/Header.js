@@ -11,7 +11,7 @@ export default function Header({ username, fullName, numFollowers, numFollowing,
 
   const { userData, setActiveUser } = useContext(UserDataContext)
 
-  const [isFollowingProfile, setIsFollowingProfile] = useState(null)
+  const [isFollowingProfile, setIsFollowingProfile] = useState(null) //control following toggle in DOM and database 
   const [followersCount, setFollowersCount] = useState(null)
 
 
